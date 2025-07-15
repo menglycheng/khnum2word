@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import React, { useState } from "react";
 import {
   Card,
   CardContent,
@@ -325,7 +325,7 @@ function convertDecimalToKhmer(decStr: string): string {
   return result;
 }
 
-export default function KhmerNumberConverter(): JSX.Element {
+export default function KhmerNumberConverter(): React.JSX.Element {
   const [input, setInput] = useState<string>("");
   const [result, setResult] = useState<string>("");
   const [conversionType, setConversionType] =
@@ -411,13 +411,21 @@ export default function KhmerNumberConverter(): JSX.Element {
                 className="flex gap-6"
               >
                 <div className="flex items-center space-x-2">
-                  <RadioGroupItem value="word2num" id="word2num" />
+                  <RadioGroupItem
+                    value="word2num"
+                    id="word2num"
+                    className="cursor-pointer"
+                  />
                   <Label htmlFor="word2num" className="text-gray-600">
                     Words to Numbers
                   </Label>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <RadioGroupItem value="num2word" id="num2word" />
+                  <RadioGroupItem
+                    value="num2word"
+                    id="num2word"
+                    className="cursor-pointer"
+                  />
                   <Label htmlFor="num2word" className="text-gray-600">
                     Numbers to Words
                   </Label>
@@ -433,13 +441,21 @@ export default function KhmerNumberConverter(): JSX.Element {
                   className="flex gap-6"
                 >
                   <div className="flex items-center space-x-2">
-                    <RadioGroupItem value="english" id="english" />
+                    <RadioGroupItem
+                      value="english"
+                      id="english"
+                      className="cursor-pointer"
+                    />
                     <Label htmlFor="english" className="text-gray-600">
                       English Numbers
                     </Label>
                   </div>
                   <div className="flex items-center space-x-2">
-                    <RadioGroupItem value="khmer" id="khmer" />
+                    <RadioGroupItem
+                      value="khmer"
+                      id="khmer"
+                      className="cursor-pointer"
+                    />
                     <Label htmlFor="khmer" className="text-gray-600">
                       Khmer Numbers
                     </Label>
@@ -494,7 +510,10 @@ export default function KhmerNumberConverter(): JSX.Element {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-end">
-              <Button onClick={handleConvert} className="sm:mt-auto">
+              <Button
+                onClick={handleConvert}
+                className="sm:mt-auto cursor-pointer"
+              >
                 Convert
               </Button>
             </div>
