@@ -7,13 +7,45 @@ import {
 } from "./utils";
 
 function word2NumEN(text: string): string {
-  const num = text2number(text);
-  return khmer2RomanNum(num);
+  const words = text.trim().split(/\s+/);
+  const results: string[] = [];
+
+  for (const word of words) {
+    if (!word) continue;
+    try {
+      const num = text2number(word);
+      results.push(khmer2RomanNum(num));
+    } catch (error) {
+      throw new Error(
+        `Cannot convert "${word}": ${
+          error instanceof Error ? error.message : "Unknown error"
+        }`
+      );
+    }
+  }
+
+  return results.join(" ");
 }
 
 function word2NumKH(text: string): string {
-  const num = text2number(text);
-  return roman2KhmerNum(num);
+  const words = text.trim().split(/\s+/);
+  const results: string[] = [];
+
+  for (const word of words) {
+    if (!word) continue;
+    try {
+      const num = text2number(word);
+      results.push(roman2KhmerNum(num));
+    } catch (error) {
+      throw new Error(
+        `Cannot convert "${word}": ${
+          error instanceof Error ? error.message : "Unknown error"
+        }`
+      );
+    }
+  }
+
+  return results.join(" ");
 }
 
 function num2WordKH(input: string): string {

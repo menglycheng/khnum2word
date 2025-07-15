@@ -26,7 +26,7 @@ type OutputType = "english" | "khmer";
 const wordExamples: Example[] = [
   { text: "មួយពាន់", desc: "One thousand" },
   { text: "ប្រាំរយ", desc: "Five hundred" },
-  { text: "ពីរម៉ឺន", desc: "Twenty thousand" },
+  { text: "មួយរយ ពីររយ", desc: "Multiple numbers" },
   { text: "បីចុចប្រាំ", desc: "3.5" },
 ];
 
@@ -215,11 +215,6 @@ export default function KhmerNumberConverter(): React.JSX.Element {
           </CardContent>
         </Card>
       </div>
-      <footer className="fixed bottom-0 left-0 right-0 text-center py-4 text-sm text-gray-600">
-        {/* footer content */}
-        {/* copyright */}
-        &copy; {new Date().getFullYear()} mengly. All rights reserved.
-      </footer>
     </div>
   );
 }
