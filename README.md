@@ -1,36 +1,121 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Khmer Number to Word Converter
 
-## Getting Started
+A web application for converting between Khmer numbers and words, with support for both Khmer and Western numerals.
 
-First, run the development server:
+## Features
+
+- **Number to Khmer Words**: Convert numeric digits to Khmer word representation
+- **Khmer Words to Numbers**: Convert Khmer word representations back to numerals
+- **Dual Numeral Systems**: Support for both Western (0-9) and Khmer (០-៩) numerals
+- **Decimal Support**: Handle decimal numbers with proper Khmer word formatting
+- **Modern UI**: Built with Next.js 15 and Tailwind CSS with dark mode support
+
+## Demo
+
+Try out the live converter at: [Your deployment URL]
+
+## Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/yourusername/khnum2word.git
+cd khnum2word
+
+# Install dependencies
+npm install
+# or
+yarn install
+# or
+pnpm install
+```
+
+## Usage
+
+### Development
+
+Run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Production
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Build and start the production server:
 
-## Learn More
+```bash
+npm run build
+npm start
+```
 
-To learn more about Next.js, take a look at the following resources:
+### As a Library
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+You can also use the converter functions directly in your own projects:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```typescript
+import { num2WordKH, word2NumKH, word2NumEN } from './src/lib/converters';
 
-## Deploy on Vercel
+// Convert number to Khmer words
+const khmerWords = num2WordKH("123");
+// Output: "មួយរយម្ភៃបី"
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+// Convert Khmer words to Khmer numerals
+const khmerNum = word2NumKH("មួយរយម្ភៃបី");
+// Output: "១២៣"
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+// Convert Khmer words to Western numerals
+const westernNum = word2NumEN("មួយរយម្ភៃបី");
+// Output: "123"
+```
+
+## Tech Stack
+
+- **Framework**: Next.js 15
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS v4
+- **UI Components**: Radix UI
+- **Icons**: Lucide React
+- **Notifications**: Sonner
+
+## Project Structure
+
+```
+khnum2word/
+├── src/
+│   ├── app/              # Next.js app directory
+│   ├── components/       # React components
+│   └── lib/
+│       ├── constants.ts  # Khmer number constants
+│       ├── converters.ts # Main conversion functions
+│       └── utils.ts      # Helper utilities
+├── public/              # Static assets
+└── package.json
+```
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+## Acknowledgments
+
+- Built with [Next.js](https://nextjs.org/)
+- UI components from [Radix UI](https://www.radix-ui.com/)
+- Styled with [Tailwind CSS](https://tailwindcss.com/)
+
+## Support
+
+If you find this project helpful, please consider giving it a ⭐️ on GitHub!
+
+For bugs and feature requests, please [open an issue](https://github.com/yourusername/khnum2word/issues).
